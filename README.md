@@ -46,7 +46,7 @@
 
     <div class="container">
         <h1>Это мой первый созданный и опубликованный сайт!!!</h1>
-        <p style="font-size:12px;">Арсений иди нахуй</p>
+        <p style="font-size:12px;">Мама привет, от Ильи</p>
     </div>
 
 </body>
