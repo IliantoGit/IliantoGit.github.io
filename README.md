@@ -1,84 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 Анекдотов</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            color: #4CAF50; /* Зеленый */
-        }
-
-        .anekdot-container {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #fff;
-        }
-
-        .number {
-            font-weight: bold;
-            color: #4CAF50; /* Зеленый */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>100 анекдотов</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    .anekdot {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .anekdot-number {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
+  <h1>100 анекдотов</h1>
 
-    <h1>100 Анекдотов</h1>
+  <!-- Пример блока анекдота -->
+  <div class="anekdot">
+    <div class="anekdot-number">Анекдот 1</div>
+    <p>Идёт программист по улице, видит вывеску: «Магазин закрыт». Думает: «Ну, значит, false».</p>
+  </div>
 
-    <div class="anekdot-container">
-        <span class="number">1.</span> Почему программисты всегда смотрят на клавиатуру, а не в экран? Потому что там нет багов!
-    </div>
+  <div class="anekdot">
+    <div class="anekdot-number">Анекдот 2</div>
+    <p>Учитель информатики: «Кто удалил Windows?» — «Я не удалял, я просто в корзину положил!»</p>
+  </div>
 
-    <div class="anekdot-container">
-        <span class="number">2.</span> - Что общего между компьютером и студентом? Оба плохо работают после экзамена.
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">3.</span> Жена говорит программисту: "Сходи в магазин и купи хлеба". Программист спрашивает: "А сколько?"
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">4.</span> - Что такое баг?  - Это когда программа работает не так, как ты от неё хочешь.
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">5.</span> Учитель: "Мама говорит, что у тебя дома нет компьютера". Ребенок: "Ну, у бабушки есть."
-    </div>
-
-    <!-- ... (Добавьте остальные анекдоты здесь) -->
-
-    <div class="anekdot-container">
-        <span class="number">50.</span> - Как называется программист, который не знает своего языка?  - Не программист.
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">51.</span> - Что будет, если ты напишешь программу на языке C++ и запустишь её в Windows?  - Ничего не произойдёт, потому что это разные вещи.
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">52.</span> - Почему программисты используют чёрный юмор? Потому что они работают с машинами, которые часто ломаются.
-    </div>
-
-    <!-- ... (Продолжите добавлять анекдоты) -->
-
-    <div class="anekdot-container">
-        <span class="number">99.</span> - Как программисты решают проблемы?  Они пишут код, пока не получится что-то работающее.
-    </div>
-
-    <div class="anekdot-container">
-        <span class="number">100.</span> - Что сказал компьютер к компьютеру? "Давай передохнем."
-    </div>
-
-
+  <!-- ...и так далее до 100 -->
 </body>
 </html>
