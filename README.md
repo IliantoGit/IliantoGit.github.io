@@ -3,95 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Смешные Анекдоты</title>
+    <title>Анекдоты</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Минимальная высота body */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
             padding: 20px;
-            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px; /* Отступ между элементами */
+        }
+
+        .anekdot {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out; /* Плавный эффект тени */
+        }
+
+        .anekdot:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Более выразистая тень при наведении */
+        }
+
+
+        .anekdot p {
+            margin: 0;
+            line-height: 1.6;
             color: #333;
         }
 
-        h1 {
-            text-align: center;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-
-        .anekdot-container {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .number {
-            font-weight: bold;
-            color: #4CAF50;
-            margin-right: 10px;
-        }
-
-        button {
-            background-color: #4CAF50;
+        footer {
+            background-color: #333;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #3e804a;
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <h1>Смешные Анекдоты</h1>
+    <header>
+        <h1>Сборник Анекдотов</h1>
+    </header>
 
-    <div class="anekdot-container">
-        <span class="number">1.</span> Почему программисты всегда смотрят на клавиатуру, а не в экран? Потому что там нет багов!
-    </div>
+    <main>
+                <div class="anekdot">
+            <p>– Как называется программист, который не пишет код? <br/>
+                — Архитектор.</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">2.</span> Жена говорит программисту: "Сходи в магазин и купи хлеба". Программист спрашивает: "А сколько?"
-    </div>
+        <div class="anekdot">
+            <p>Встречаются два компьютера:
+            - Ты чего такой грустный?
+            - Да, вирус подцепил.
+            - А у меня антивирус!</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">3.</span> - Что такое баг?  - Это когда программа работает не так, как ты от неё хочешь.
-    </div>
+        <div class="anekdot">
+            <p>– Что сказал математический знак минус своей девушке? <br/>
+                — Я тебя отниму.</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">4.</span> Учитель: "Мама говорит, что у тебя дома нет компьютера". Ребенок: "Ну, у бабушки есть."
-    </div>
+        <div class="anekdot">
+            <p>Приходит мужик в магазин: "Дайте мне, пожалуйста, хлеба." Продавец отвечает: "А деньги?" Мужик говорит: "А я вам что, приду с гитарой?</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">5.</span> - Как называется программист, который не знает своего языка?  - Не программист.
-    </div>
+        <div class="anekdot">
+            <p>– Как называется программист, который не знает своего языка? <br/>
+                — Универсальный.</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">6.</span> - Что будет, если ты напишешь программу на языке C++ и запустишь её в Windows?  - Ничего не произойдёт, потому что это разные вещи.
-    </div>
+        <div class="anekdot">
+            <p>Встречаются два бухгалтера:
+            - Как дела?
+            - Да все по дефолту.</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">7.</span> - Почему программисты используют чёрный юмор? Потому что они работают с машинами, которые часто ломаются.
-    </div>
+        <div class="anekdot">
+            <p>– Что сказал один батон другому? <br/>
+                — Мы с тобой будем вместе!</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">8.</span>  - Как программисты решают проблемы? Они пишут код, пока не получится что-то работающее.
-    </div>
+        <div class="anekdot">
+            <p>Приходит мужик к врачу: "У меня болит голова." Врач отвечает: "Не переживайте, это пройдет." Мужик спрашивает: "А когда?" Врач говорит: "Когда-нибудь..."</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">9.</span> - Что сказал компьютер к компьютеру? "Давай передохнем."
-    </div>
+        <div class="anekdot">
+            <p>– Как назвать программиста, который пишет только на одном языке? <br/>
+                — Специалист.</p>
+        </div>
+        <div class="anekdot">
+            <p>– Как назвать программиста, который пишет только на одном языке? <br/>
+                — Специалист.</p>
+        </div>
 
-    <div class="anekdot-container">
-        <span class="number">10.</span>  - Как называется программист, который пишет только на одном языке?  - Ограниченный.
-    </div>
+        <div class="anekdot">
+            <p>Встречаются два бухгалтера:
+            - Как дела?
+            - Да все по дефолту.</p>
+        </div>
 
+        <div class="anekdot">
+            <p>– Как называется батон, который умеет считать? <br/>
+                — Бухгалтерский хлеб.</p>
+        </div>
+
+        <div class="anekdot">
+            <p>Приходит мужик к врачу: "У меня болит голова." Врач отвечает: "Не переживайте, это пройдет." Мужик спрашивает: "А когда?" Врач говорит: "Когда-нибудь..."</p>
+        </div>
+
+        <div class="anekdot">
+            <p>– Что сказал один батон другому? <br/>
+                — Мы с тобой будем вместе!</p>
+        </div>
+
+        <div class="anekdot">
+            <p>Встречаются два программиста:
+            - Как дела?
+            - Да, все работает.</p>
+        </div>
+
+        <div class="anekdot">
+            <p>– Что сказал компьютер своему пользователю? <br/>
+                — Я жду инструкций.</p>
+        </div>
+
+    </main>
+
+
+
+    <footer>
+        <p>&copy; 2023 Сборник анекдотов. Все права защищены.</p>
+    </footer>
 
 </body>
 </html>
