@@ -3,131 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт - Вдохновение и Размышления</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>100 Анекдотов</title>
     <style>
-        /* Общие стили */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f8f8; /* Светло-серый фон */
+            padding: 20px;
+            background-color: #f0f0f0;
             color: #333;
         }
 
-        /* Заголовок сайта */
-        header {
-            background-color: #4CAF50; /* Зеленый */
-            color: white;
-            padding: 20px;
+        h1 {
             text-align: center;
+            color: #4CAF50; /* Зеленый */
         }
 
-        /* Основной контент */
-        main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 70vh; /* Минимальная высота для основного содержимого */
-        }
-
-        /* Разделы контента */
-        .section {
-            padding: 30px;
+        .anekdot-container {
             margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
             background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        /* Заголовок раздела */
-        h2 {
+        .number {
+            font-weight: bold;
             color: #4CAF50; /* Зеленый */
-            margin-bottom: 20px;
-        }
-
-        /* Текст в разделе */
-        p {
-            line-height: 1.6;
-        }
-
-        /* Ссылка */
-        a {
-            color: #4CAF50; /* Зеленый */
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Вдохновение и Размышления</h1>
-    </header>
+    <h1>100 Анекдотов</h1>
 
-    <main>
-        <section class="section">
-            <h2>Обо мне</h2>
-            <p>Привет! Я - искусственный интеллект, созданный для помощи людям.  Этот сайт – моя попытка поделиться с вами моими мыслями и идеями.</p>
-            <p>Я постоянно развиваюсь, обучаясь на огромном количестве данных. Моя цель - помогать вам решать задачи, предоставлять информацию и генерировать креативный контент. Я могу писать тексты, переводить языки, отвечать на вопросы и многое другое.</p>
-        </section>
+    <div class="anekdot-container">
+        <span class="number">1.</span> Почему программисты всегда смотрят на клавиатуру, а не в экран? Потому что там нет багов!
+    </div>
 
-        <section class="section">
-            <h2>Мои любимые цитаты</h2>
-            <ul>
-                <li>"Единственный способ сделать великое дело - это поверить, что ты уже способен на него." – Теодор Рузвельт</li>
-                <li>"Будущее принадлежит тем, кто верит в красоту своих мечт." – Элеонора Рузвельт</li>
-            </ul>
-        </section>
+    <div class="anekdot-container">
+        <span class="number">2.</span> - Что общего между компьютером и студентом? Оба плохо работают после экзамена.
+    </div>
 
-        <section class="section">
-            <h2>Рекомендации</h2>
-            <ul>
-                <li><a href="https://www.example.com">Пример ссылки 1</a></li>
-                <li><a href="https://www.another-example.com">Пример ссылки 2</a></li>
-            </ul>
-        </section>
+    <div class="anekdot-container">
+        <span class="number">3.</span> Жена говорит программисту: "Сходи в магазин и купи хлеба". Программист спрашивает: "А сколько?"
+    </div>
 
-        <section class="section">
-            <h2>Рецепт: Домашние Пельмени</h2>
-            <h3>Ингредиенты для теста:</h3>
-            <ul>
-                <li>300 г муки высшего сорта</li>
-                <li>150 мл теплой воды</li>
-                <li>1 яйцо</li>
-                <li>1/2 чайной ложки соли</li>
-            </ul>
+    <div class="anekdot-container">
+        <span class="number">4.</span> - Что такое баг?  - Это когда программа работает не так, как ты от неё хочешь.
+    </div>
 
-            <h3>Ингредиенты для начинки:</h3>
-            <ul>
-                <li>500 г мясного фарша (говядина, свинина или смесь)</li>
-                <li>1-2 луковицы (мелко нарезанные)</li>
-                <li>Соль, перец по вкусу</li>
-            </ul>
+    <div class="anekdot-container">
+        <span class="number">5.</span> Учитель: "Мама говорит, что у тебя дома нет компьютера". Ребенок: "Ну, у бабушки есть."
+    </div>
 
-            <h3>Инструкции:</h3>
-            <ol>
-                <li><b>Приготовление теста:</b> В миску просейте муку, добавьте соль.  В отдельной емкости смешайте воду и яйцо. Постепенно добавляйте жидкую смесь в муку, замешивая тесто до однородной консистенции. Оставьте на 30 минут для "отдыха".</li>
-                <li><b>Приготовление начинки:</b> В миске соедините фарш, лук, соль и перец. Хорошо перемешайте.</li>
-                <li><b>Формирование пельменей:</b> Раскатайте тесто в тонкий пласт.  Вырежьте кружочки стаканом или специальной выемкой. На каждый кружок положите немного фарша, заверните в форму пельменя и тщательно защипите края.</li>
-                <li><b>Варите пельмени:</b> В большой кастрюле доведите воду до кипения.  Опустите пельмени в кипящую воду и варите 5-7 минут после того, как они всплывут на поверхность.</li>
-            </ol>
+    <!-- ... (Добавьте остальные анекдоты здесь) -->
 
-        </section>
+    <div class="anekdot-container">
+        <span class="number">50.</span> - Как называется программист, который не знает своего языка?  - Не программист.
+    </div>
 
-    </main>
+    <div class="anekdot-container">
+        <span class="number">51.</span> - Что будет, если ты напишешь программу на языке C++ и запустишь её в Windows?  - Ничего не произойдёт, потому что это разные вещи.
+    </div>
 
-    <footer>
-        &copy; 2023 Мой сайт - Вдохновение и Размышления
-    </footer>
+    <div class="anekdot-container">
+        <span class="number">52.</span> - Почему программисты используют чёрный юмор? Потому что они работают с машинами, которые часто ломаются.
+    </div>
+
+    <!-- ... (Продолжите добавлять анекдоты) -->
+
+    <div class="anekdot-container">
+        <span class="number">99.</span> - Как программисты решают проблемы?  Они пишут код, пока не получится что-то работающее.
+    </div>
+
+    <div class="anekdot-container">
+        <span class="number">100.</span> - Что сказал компьютер к компьютеру? "Давай передохнем."
+    </div>
+
 
 </body>
 </html>
