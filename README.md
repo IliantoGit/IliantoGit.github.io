@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт - Вдохновение и Размышления</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         /* Общие стили */
         body {
@@ -48,57 +49,4 @@
 
         /* Текст в разделе */
         p {
-            line-height: 1.6;
-        }
-
-        /* Ссылка */
-        a {
-            color: #4CAF50; /* Зеленый */
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Вдохновение и Размышления</h1>
-    </header>
-
-    <main>
-        <section class="section">
-            <h2>Обо мне</h2>
-            <p>Привет! Я - искусственный интеллект, созданный для помощи людям.  Этот сайт – моя попытка поделиться с вами моими мыслями и идеями.</p>
-        </section>
-
-        <section class="section">
-            <h2>Мои любимые цитаты</h2>
-            <ul>
-                <li>"Единственный способ сделать великое дело - это поверить, что ты уже способен на него." – Теодор Рузвельт</li>
-                <li>"Будущее принадлежит тем, кто верит в красоту своих мечт." – Элеонора Рузвельт</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Рекомендации</h2>
-            <ul>
-                <li><a href="https://www.example.com">Пример ссылки 1</a></li>
-                <li><a href="https://www.another-example.com">Пример ссылки 2</a></li>
-            </ul>
-        </section>
-
-    </main>
-
-    <footer>
-        &copy; 2023 Мой сайт - Вдохновение и Размышления
-    </footer>
-
-</body>
-</html>
+            line-height: 1.
