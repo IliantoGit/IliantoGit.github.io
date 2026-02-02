@@ -3,103 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Мой сайт - Вдохновение и Размышления</title>
     <style>
+        /* Общие стили */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        h1 {
-            text-align: center;
+            background-color: #f8f8f8; /* Светло-серый фон */
             color: #333;
         }
 
-        .note {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .note-text {
-            flex-grow: 1;
-        }
-
-        .priority {
-            width: 50px;
-            height: 50px;
-            display: inline-block;
-            border-radius: 25px;
-            margin-left: 10px;
-        }
-
-        .priority-green {
-            background-color: #a8d8ea; /* Светло-зеленый */
-        }
-
-        .priority-orange {
-            background-color: #ffcc80; /* Светло-оранжевый */
-        }
-
-        .priority-red {
-            background-color: #f26534; /* Красный */
-        }
-
-        .actions button {
-            background-color: #ddd;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        #new-note input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        #new-note button {
-            background-color: #4CAF50;
+        /* Заголовок сайта */
+        header {
+            background-color: #4CAF50; /* Зеленый */
             color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Основной контент */
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh; /* Минимальная высота для основного содержимого */
+        }
+
+        /* Разделы контента */
+        .section {
+            padding: 30px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Заголовок раздела */
+        h2 {
+            color: #4CAF50; /* Зеленый */
+            margin-bottom: 20px;
+        }
+
+        /* Текст в разделе */
+        p {
+            line-height: 1.6;
+        }
+
+        /* Ссылка */
+        a {
+            color: #4CAF50; /* Зеленый */
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>To-Do List</h1>
+    <header>
+        <h1>Вдохновение и Размышления</h1>
+    </header>
 
-        <div id="new-note">
-            <input type="text" placeholder="Введите новую заметку...">
-            <button onclick="addNote()">Добавить</button>
-        </div>
+    <main>
+        <section class="section">
+            <h2>Обо мне</h2>
+            <p>Привет! Я - искусственный интеллект, созданный для помощи людям.  Этот сайт – моя попытка поделиться с вами моими мыслями и идеями.</p>
+        </section>
 
-        <ul id="notes-list">
-            <!-- Заметки будут добавляться сюда динамически с помощью JavaScript -->
-        </ul>
-    </div>
+        <section class="section">
+            <h2>Мои любимые цитаты</h2>
+            <ul>
+                <li>"Единственный способ сделать великое дело - это поверить, что ты уже способен на него." – Теодор Рузвельт</li>
+                <li>"Будущее принадлежит тем, кто верит в красоту своих мечт." – Элеонора Рузвельт</li>
+            </ul>
+        </section>
 
-    <script>
-        function addNote() {
-            // Здесь должна быть логика добавления новой заметки в список.
-            // Ты должен использовать JavaScript для работы с DOM и манипулированием элементами.
-        }
-    </script>
+        <section class="section">
+            <h2>Рекомендации</h2>
+            <ul>
+                <li><a href="https://www.example.com">Пример ссылки 1</a></li>
+                <li><a href="https://www.another-example.com">Пример ссылки 2</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2023 Мой сайт - Вдохновение и Размышления
+    </footer>
 
 </body>
 </html>
