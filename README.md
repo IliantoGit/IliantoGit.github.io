@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>100 анекдотов</title>
+  <title>10 анекдотов</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,23 +26,23 @@
     .anekdot-number {
       font-weight: bold;
       color: #555;
+      margin-bottom: 5px;
     }
   </style>
 </head>
 <body>
-  <h1>100 анекдотов</h1>
+  <h1>10 анекдотов</h1>
 
-  <!-- Пример блока анекдота -->
-  <div class="anekdot">
-    <div class="anekdot-number">Анекдот 1</div>
-    <p>Идёт программист по улице, видит вывеску: «Магазин закрыт». Думает: «Ну, значит, false».</p>
-  </div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 1</div><p>— Почему программист всегда спокоен? — Потому что у него есть Ctrl+Z.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 2</div><p>— У меня компьютер завис. — Ну, значит, он просто медитирует.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 3</div><p>— Почему админ всегда улыбается? — Потому что у него есть root-доступ.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 4</div><p>— Как программист делает предложение девушке? — if (ты == моя) { marry(); }</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 5</div><p>— Почему ноутбук грустит? — Потому что у него мало оперативки для радости.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 6</div><p>— Что сказал компьютер, когда его включили? — «Наконец-то, доброе утро!»</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 7</div><p>— Почему программисты любят ночь? — Потому что баги спят.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 8</div><p>— Как зовут собаку программиста? — Байт.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 9</div><p>— Почему телефон всегда занят? — Потому что у него много приложений.</p></div>
+  <div class="anekdot"><div class="anekdot-number">Анекдот 10</div><p>— Что сказал Wi-Fi роутер соседу? — «Не подключайся ко мне без пароля!»</p></div>
 
-  <div class="anekdot">
-    <div class="anekdot-number">Анекдот 2</div>
-    <p>Учитель информатики: «Кто удалил Windows?» — «Я не удалял, я просто в корзину положил!»</p>
-  </div>
-
-  <!-- ...и так далее до 100 -->
 </body>
 </html>
