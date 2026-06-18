@@ -38,12 +38,6 @@ body {
   font-size: 1.4em;
   color: #e94560;
 }
-.info-row {
-  margin-bottom: 12px;
-  font-size: 1em;
-}
-.info-label { color: #888; }
-.info-value { color: #fff; font-weight: bold; }
 #turn-indicator {
   text-align: center;
   font-size: 1.2em;
@@ -66,17 +60,9 @@ body {
 .status-check { background: #ff6b3520; color: #ff6b35; border: 1px solid #ff6b35; }
 .status-checkmate { background: #e9456020; color: #e94560; border: 1px solid #e94560; }
 .status-stalemate { background: #0f346020; color: #4fc3f7; border: 1px solid #4fc3f7; }
-
-.captured-section {
-  margin-bottom: 12px;
-}
+.captured-section { margin-bottom: 12px; }
 .captured-label { color: #888; font-size: 0.9em; margin-bottom: 4px; }
-.captured-pieces {
-  font-size: 1.5em;
-  min-height: 30px;
-  letter-spacing: 2px;
-}
-
+.captured-pieces { font-size: 1.5em; min-height: 30px; letter-spacing: 2px; }
 #btn-new-game {
   width: 100%;
   padding: 12px;
@@ -91,22 +77,42 @@ body {
   margin-top: 12px;
 }
 #btn-new-game:hover { background: #c73650; }
-
+#board-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+#row-coords {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 480px;
+  padding: 0 8px;
+  font-size: 16px;
+  color: #aaa;
+}
+#col-coords {
+  display: flex;
+  justify-content: space-around;
+  width: 480px;
+  padding: 4px 0;
+  font-size: 16px;
+  color: #aaa;
+}
 #board {
   display: grid;
-  grid-template-columns: repeat(8, 70px);
-  grid-template-rows: repeat(8, 70px);
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
   border: 3px solid #b58863;
   border-radius: 4px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 .cell {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 38px;
   cursor: pointer;
   position: relative;
   user-select: none;
@@ -118,38 +124,20 @@ body {
 .cell.valid-move::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: rgba(0,0,0,0.2);
+  width: 18px;
+  height: 18px;
+  background: rgba(0,0,0,0.25);
   border-radius: 50%;
+  pointer-events: none;
 }
 .cell.valid-capture {
-  background: rgba(255,100,100,0.4) !important;
-  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px rgba(255,50,50,0.6);
 }
-.cell.last-move { background: rgba(255,255,100,0.35) !important; }
+.cell.last-move-light { background: #cdd26a !important; }
+.cell.last-move-dark { background: #aaa23a !important; }
 .cell.king-check {
   background: radial-gradient(circle, #ff000080, #ff000030) !important;
 }
-
-.coords-row, .coords-col {
-  display: flex;
-  font-size: 14px;
-  color: #aaa;
-}
-.coords-col {
-  justify-content: space-around;
-  width: 560px;
-  padding: 4px 0;
-}
-.coords-row {
-  flex-direction: column;
-  justify-content: space-around;
-  height: 560px;
-  padding: 0 8px;
-}
-.coord { width: 70px; text-align: center; line-height: 70px; }
-
 /* Promotion modal */
 #promotion-modal {
   display: none;
@@ -194,11 +182,11 @@ body {
 
 <div id="app">
   <div id="board-container">
-    <div style="display:flex;align-items:stretch;">
-      <div class="coords-row" id="row-coords"></div>
+    <div id="board-wrapper">
+      <div id="row-coords"></div>
       <div>
         <div id="board"></div>
-        <div class="coords-col" id="col-coords"></div>
+        <div id="col-coords"></div>
       </div>
     </div>
   </div>
@@ -235,12 +223,12 @@ let lastMove = null;
 let capturedByWhite = [];
 let capturedByBlack = [];
 let gameOver = false;
-let enPassantTarget = null; // {row, col} — target square for en passant
+let enPassantTarget = null;
 let castlingRights = {
   white: { kingSide: true, queenSide: true },
   black: { kingSide: true, queenSide: true }
 };
-let promotionCallback = null;
+let promotionPending = false;
 
 const PIECES = {
   king:   { white: '♔', black: '♚' },
@@ -250,8 +238,6 @@ const PIECES = {
   knight: { white: '♘', black: '♞' },
   pawn:   { white: '♙', black: '♟' }
 };
-
-const PIECE_VALUES = { pawn: 1, knight: 3, bishop: 3, rook: 5, queen: 9, king: 0 };
 
 // ==================== INITIALIZATION ====================
 function newGame() {
@@ -263,6 +249,7 @@ function newGame() {
   capturedByWhite = [];
   capturedByBlack = [];
   gameOver = false;
+  promotionPending = false;
   enPassantTarget = null;
   castlingRights = {
     white: { kingSide: true, queenSide: true },
@@ -301,7 +288,7 @@ function renderBoard() {
       if (lastMove) {
         if ((r === lastMove.fromRow && c === lastMove.fromCol) ||
             (r === lastMove.toRow && c === lastMove.toCol)) {
-          cell.classList.add('last-move');
+          cell.classList.add(isLight ? 'last-move-light' : 'last-move-dark');
         }
       }
 
@@ -345,15 +332,19 @@ function renderCoords() {
   colCoords.innerHTML = '';
   for (let r = 0; r < 8; r++) {
     const d = document.createElement('div');
-    d.className = 'coord';
+    d.style.height = '60px';
+    d.style.display = 'flex';
+    d.style.alignItems = 'center';
+    d.style.justifyContent = 'center';
+    d.style.width = '20px';
     d.textContent = 8 - r;
     rowCoords.appendChild(d);
   }
   const cols = 'abcdefgh';
   for (let c = 0; c < 8; c++) {
     const d = document.createElement('div');
-    d.className = 'coord';
-    d.style.width = '70px';
+    d.style.width = '60px';
+    d.style.textAlign = 'center';
     d.textContent = cols[c];
     colCoords.appendChild(d);
   }
@@ -368,7 +359,7 @@ function updateInfo() {
   statusEl.className = '';
   statusEl.textContent = '';
 
-  if (!gameOver) {
+  if (!gameOver && !promotionPending) {
     if (isKingInCheck(currentTurn)) {
       if (isCheckmate(currentTurn)) {
         statusEl.textContent = (currentTurn === 'white' ? 'Чёрные' : 'Белые') + ' победили! Мат!';
@@ -393,7 +384,7 @@ function updateInfo() {
 
 // ==================== CLICK HANDLING ====================
 function onCellClick(row, col) {
-  if (gameOver) return;
+  if (gameOver || promotionPending) return;
 
   const piece = board[row][col];
 
@@ -442,7 +433,7 @@ function makeMove(fromRow, fromCol, toRow, toCol, moveInfo) {
     else capturedByBlack.push(captured);
   }
 
-  // Castling
+  // Castling — move the rook
   if (moveInfo.castling) {
     if (moveInfo.castling === 'kingSide') {
       board[fromRow][5] = board[fromRow][7];
@@ -467,33 +458,31 @@ function makeMove(fromRow, fromCol, toRow, toCol, moveInfo) {
     enPassantTarget = null;
   }
 
+  lastMove = { fromRow, fromCol, toRow, toCol };
+
   // Pawn promotion
   if (piece.type === 'pawn' && (toRow === 0 || toRow === 7)) {
+    promotionPending = true;
     showPromotionDialog(piece.color, toRow, toCol);
-    lastMove = { fromRow, fromCol, toRow, toCol };
     renderBoard();
     updateInfo();
-    return; // Turn switches after promotion choice
+    return;
   }
 
-  lastMove = { fromRow, fromCol, toRow, toCol };
   switchTurn();
   renderBoard();
   updateInfo();
 }
 
 function updateCastlingRights(piece, fromRow, fromCol, toRow, toCol) {
-  // King moved
   if (piece.type === 'king') {
     castlingRights[piece.color].kingSide = false;
     castlingRights[piece.color].queenSide = false;
   }
-  // Rook moved or captured
   if (piece.type === 'rook') {
     if (fromCol === 0) castlingRights[piece.color].queenSide = false;
     if (fromCol === 7) castlingRights[piece.color].kingSide = false;
   }
-  // Rook captured
   const oppColor = piece.color === 'white' ? 'black' : 'white';
   if (toRow === 0 && toCol === 0) castlingRights[oppColor].queenSide = false;
   if (toRow === 0 && toCol === 7) castlingRights[oppColor].kingSide = false;
@@ -518,6 +507,7 @@ function showPromotionDialog(color, row, col) {
     btn.addEventListener('click', () => {
       board[row][col] = { type, color };
       modal.classList.remove('active');
+      promotionPending = false;
       switchTurn();
       renderBoard();
       updateInfo();
@@ -636,11 +626,11 @@ function getLegalMoves(row, col) {
   if (!piece) return [];
   const pseudoMoves = getPseudoLegalMoves(row, col);
   return pseudoMoves.filter(move => {
-    // Simulate the move and check if own king is in check
-    const savedBoard = board.map(r => r.map(c => c ? {...c} : null));
-    const savedEP = enPassantTarget ? {...enPassantTarget} : null;
+    // Save full board state
+    const savedBoard = board.map(r => r.map(c => c ? {type: c.type, color: c.color} : null));
+    const savedEP = enPassantTarget ? {row: enPassantTarget.row, col: enPassantTarget.col} : null;
 
-    // Execute move on board
+    // Execute move on board copy (we modify the real board then restore)
     const movingPiece = board[row][col];
     if (move.enPassant) {
       const epRow = movingPiece.color === 'white' ? move.row + 1 : move.row - 1;
@@ -685,24 +675,49 @@ function findKing(color) {
 }
 
 function isSquareAttacked(row, col, byColor) {
-  // Check if any piece of byColor attacks (row, col)
   for (let r = 0; r < 8; r++) {
     for (let c = 0; c < 8; c++) {
       const p = board[r][c];
       if (!p || p.color !== byColor) continue;
-      const moves = getPseudoLegalMoves(r, c);
-      // For pawns, only diagonal captures attack (not forward moves)
+
       if (p.type === 'pawn') {
         const dir = p.color === 'white' ? -1 : 1;
         if (r + dir === row && (c - 1 === col || c + 1 === col)) return true;
         continue;
       }
-      // For king, only adjacent squares
+
       if (p.type === 'king') {
-        if (Math.abs(r - row) <= 1 && Math.abs(c - col) <= 1) return true;
+        if (Math.abs(r - row) <= 1 && Math.abs(c - col) <= 1 && !(r === row && c === col)) return true;
         continue;
       }
-      if (moves.some(m => m.row === row && m.col === col)) return true;
+
+      if (p.type === 'knight') {
+        const dr = Math.abs(r - row), dc = Math.abs(c - col);
+        if ((dr === 2 && dc === 1) || (dr === 1 && dc === 2)) return true;
+        continue;
+      }
+
+      // Sliding pieces: bishop, rook, queen
+      if (p.type === 'bishop' || p.type === 'rook' || p.type === 'queen') {
+        const dr = row - r, dc = col - c;
+        const absDr = Math.abs(dr), absDc = Math.abs(dc);
+
+        if (p.type === 'bishop' && !(absDr === absDc && absDr > 0)) continue;
+        if (p.type === 'rook' && !(absDr === 0 || absDc === 0)) continue;
+        if (p.type === 'queen' && !(absDr === absDc || absDr === 0 || absDc === 0)) continue;
+        if (absDr === 0 && absDc === 0) continue;
+
+        const stepR = dr === 0 ? 0 : (dr > 0 ? 1 : -1);
+        const stepC = dc === 0 ? 0 : (dc > 0 ? 1 : -1);
+        let cr = r + stepR, cc = c + stepC;
+        let blocked = false;
+        while (cr !== row || cc !== col) {
+          if (board[cr][cc]) { blocked = true; break; }
+          cr += stepR; cc += stepC;
+        }
+        if (!blocked) return true;
+        continue;
+      }
     }
   }
   return false;
